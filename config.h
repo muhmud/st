@@ -74,7 +74,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char *termname = "screen-256color";
 
 /*
  * spaces per tab
@@ -101,7 +101,7 @@ static const char *colorname[] = {
 	"green3",
 	"yellow3",
 	"#274EB7",
-	"#5E4043",
+	"#5E7043",
 	"cyan3",
 	"gray90",
 
@@ -111,7 +111,7 @@ static const char *colorname[] = {
 	"green",
 	"yellow",
 	"#274EB7",
-	"#5E4043",
+	"#5E7043",
 	"cyan",
 	"white",
 
@@ -183,22 +183,22 @@ static MouseShortcut mshortcuts[] = {
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
-#define TERMMOD (ControlMask|ShiftMask)
+#define TERMMOD (ControlMask)
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
+/*{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
+	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },*/
+	{ TERMMOD,              XK_equal,       zoom,           {.f = +1} },
+	{ TERMMOD,              XK_minus,       zoom,           {.f = -1} },
+  { MODKEY,               XK_equal,       zoomreset,      {.f =  0} },
+/*{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },*/
 };
 
 /*
@@ -332,7 +332,10 @@ static Key key[] = {
 	{ XK_Right,         XK_ANY_MOD,     "\033[C",        0,   -1},
 	{ XK_Right,         XK_ANY_MOD,     "\033OC",        0,   +1},
 	{ XK_ISO_Left_Tab,  ShiftMask,      "\033[Z",        0,    0},
-	{ XK_Return,        Mod1Mask,       "\033\r",        0,    0},
+	{ XK_Return,        Mod1Mask,       "\033[XA",        0,    0},
+	{ XK_Return,        ControlMask,    "\033[XB",       0,    0},
+	{ XK_Return,        ShiftMask,      "\033[XC",       0,    0},
+	{ XK_Return, ShiftMask|ControlMask, "\033[XD",       0,    0},
 	{ XK_Return,        XK_ANY_MOD,     "\r",            0,    0},
 	{ XK_Insert,        ShiftMask,      "\033[4l",      -1,    0},
 	{ XK_Insert,        ShiftMask,      "\033[2;2~",    +1,    0},
@@ -348,6 +351,8 @@ static Key key[] = {
 	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
 	{ XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
 	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
+  { XK_BackSpace,     ControlMask,    "\033\178",      0,    0},
+  { XK_BackSpace,     ShiftMask,      "\033\179",      0,    0},
 	{ XK_Home,          ShiftMask,      "\033[2J",       0,   -1},
 	{ XK_Home,          ShiftMask,      "\033[1;2H",     0,   +1},
 	{ XK_Home,          XK_ANY_MOD,     "\033[H",        0,   -1},
