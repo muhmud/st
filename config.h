@@ -74,7 +74,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "screen-256color";
+char *termname = "st-256color";
 
 /*
  * spaces per tab
@@ -226,7 +226,7 @@ static Shortcut shortcuts[] = {
  * If you want keys other than the X11 function keys (0xFD00 - 0xFFFF)
  * to be mapped below, add them to this array.
  */
-static KeySym mappedkeys[] = { -1 };
+static KeySym mappedkeys[] = { XK_q };
 
 /*
  * State bits to ignore when matching key or button events.  By default,
@@ -240,6 +240,8 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
  */
 static Key key[] = {
 	/* keysym           mask            string      appkey appcursor */
+  { XK_q,             ControlMask,    "\033[6_",       0,    0},
+  { XK_q,             XK_NO_MOD,      "q",             0,    0},
 	{ XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
 	{ XK_KP_Home,       ShiftMask,      "\033[1;2H",     0,   +1},
 	{ XK_KP_Home,       XK_ANY_MOD,     "\033[H",        0,   -1},
@@ -285,6 +287,7 @@ static Key key[] = {
 	{ XK_KP_Subtract,   XK_ANY_MOD,     "\033Om",       +2,    0},
 	{ XK_KP_Decimal,    XK_ANY_MOD,     "\033On",       +2,    0},
 	{ XK_KP_Divide,     XK_ANY_MOD,     "\033Oo",       +2,    0},
+  { XK_KP_0,          ControlMask,    "\033[1111{",   +2,    0},
 	{ XK_KP_0,          XK_ANY_MOD,     "\033Op",       +2,    0},
 	{ XK_KP_1,          XK_ANY_MOD,     "\033Oq",       +2,    0},
 	{ XK_KP_2,          XK_ANY_MOD,     "\033Or",       +2,    0},
@@ -332,7 +335,9 @@ static Key key[] = {
 	{ XK_Right,         XK_ANY_MOD,     "\033[C",        0,   -1},
 	{ XK_Right,         XK_ANY_MOD,     "\033OC",        0,   +1},
 	{ XK_ISO_Left_Tab,  ShiftMask,      "\033[Z",        0,    0},
-	{ XK_Return,        Mod1Mask,       "\033[XA",        0,    0},
+  { XK_Tab,           ControlMask,    "\033[1;Z",       0,    0},
+  { XK_ISO_Left_Tab,ControlMask|ShiftMask,"\033[5;Z",   0,    0},
+	{ XK_Return,        Mod1Mask,       "\033[XA",       0,    0},
 	{ XK_Return,        ControlMask,    "\033[XB",       0,    0},
 	{ XK_Return,        ShiftMask,      "\033[XC",       0,    0},
 	{ XK_Return, ShiftMask|ControlMask, "\033[XD",       0,    0},
@@ -353,12 +358,15 @@ static Key key[] = {
 	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
   { XK_BackSpace,     ControlMask,    "\033\178",      0,    0},
   { XK_BackSpace,     ShiftMask,      "\033\179",      0,    0},
-	{ XK_Home,          ShiftMask,      "\033[2J",       0,   -1},
+  { XK_Home,          ControlMask,    "\033[1;5E",     0,    0},
+  { XK_Home,   ControlMask|ShiftMask, "\033[1;5EK",    0,    0},
 	{ XK_Home,          ShiftMask,      "\033[1;2H",     0,   +1},
+	{ XK_Home,          ShiftMask,      "\033[2J",       0,   -1},
 	{ XK_Home,          XK_ANY_MOD,     "\033[H",        0,   -1},
 	{ XK_Home,          XK_ANY_MOD,     "\033[1~",       0,   +1},
 	{ XK_End,           ControlMask,    "\033[J",       -1,    0},
 	{ XK_End,           ControlMask,    "\033[1;5F",    +1,    0},
+  { XK_End,    ControlMask|ShiftMask, "\033[1;5FK",    0,    0},
 	{ XK_End,           ShiftMask,      "\033[K",       -1,    0},
 	{ XK_End,           ShiftMask,      "\033[1;2F",    +1,    0},
 	{ XK_End,           XK_ANY_MOD,     "\033[4~",       0,    0},
