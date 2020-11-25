@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=32:antialias=true:autohint=true";
-static int borderpx = 2;
+static char *font = "Victor Mono:pixelsize=36:antialias=true:autohint=true:weight=180";
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -16,7 +16,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/bin/tmux";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -100,8 +100,8 @@ static const char *colorname[] = {
 	"red3",
 	"green3",
 	"yellow3",
-	"blue2",
-	"magenta3",
+	"#274EB7",
+	"#5E4043",
 	"cyan3",
 	"gray90",
 
@@ -110,8 +110,8 @@ static const char *colorname[] = {
 	"red",
 	"green",
 	"yellow",
-	"#5c5cff",
-	"magenta",
+	"#274EB7",
+	"#5E4043",
 	"cyan",
 	"white",
 
