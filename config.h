@@ -357,7 +357,7 @@ static Key key[] = {
 	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
 	{ XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
 	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
-  { XK_BackSpace,     ControlMask,    "\033[178",      0,    0},
+  { XK_BackSpace,     ControlMask,    "\033\177",      0,    0},
   { XK_BackSpace,     ShiftMask,      "\033[179",      0,    0},
   { XK_Home,          ControlMask,    "\033[1;5E",     0,    0},
   { XK_Home,   ControlMask|ShiftMask, "\033[1;5EK",    0,    0},
