@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Victor Mono:pixelsize=36:antialias=true:autohint=true:weight=180";
+static char *font = "Victor Mono:pixelsize=32:antialias=true:autohint=true:weight=180";
 static int borderpx = 0;
 
 /*
@@ -92,6 +92,9 @@ char *termname = "st-256color";
  *	stty tabs
  */
 unsigned int tabspaces = 2;
+
+/* bg opacity */
+float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
