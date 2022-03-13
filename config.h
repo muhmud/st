@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Victor Mono:pixelsize=32:antialias=true:autohint=true:weight=180";
+static char *font = "Victor Mono:pixelsize=29:antialias=true:autohint=true:weight=180";
 static int borderpx = 0;
 
 /*
