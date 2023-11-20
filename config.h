@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Victor Mono:pixelsize=29:antialias=true:autohint=true:weight=180";
+static char *font = "Victor Mono:pixelsize=19:antialias=true:autohint=true:weight=180";
 static int borderpx = 0;
 
 /*
@@ -237,7 +237,7 @@ static Shortcut shortcuts[] = {
  * If you want keys other than the X11 function keys (0xFD00 - 0xFFFF)
  * to be mapped below, add them to this array.
  */
-static KeySym mappedkeys[] = { XK_q };
+static KeySym mappedkeys[] = { XK_H, XK_J, XK_K, XK_L, XK_q, XK_bar };
 
 /*
  * State bits to ignore when matching key or button events.  By default,
@@ -251,6 +251,15 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
  */
 static Key key[] = {
 	/* keysym           mask            string      appkey appcursor */
+  { XK_bar,   ShiftMask|ControlMask,  "\033[1_",  0,    0},
+  { XK_H,   ShiftMask|ControlMask,    "\033[2_",       0,    0},
+  { XK_H,             XK_NO_MOD,      "h",             0,    0},
+  { XK_L,   ShiftMask|ControlMask,    "\033[3_",       0,    0},
+  { XK_L,             XK_NO_MOD,      "l",             0,    0},
+  { XK_J,   ShiftMask|ControlMask,    "\033[4_",       0,    0},
+  { XK_J,             XK_NO_MOD,      "j",             0,    0},
+  { XK_K,   ShiftMask|ControlMask,    "\033[5_",       0,    0},
+  { XK_K,             XK_NO_MOD,      "k",             0,    0},
   { XK_q,             ControlMask,    "\033[6_",       0,    0},
   { XK_q,             XK_NO_MOD,      "q",             0,    0},
 	{ XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
@@ -476,7 +485,7 @@ static Key key[] = {
 	{ XK_F32,           XK_NO_MOD,      "\033[19;5~",    0,    0},
 	{ XK_F33,           XK_NO_MOD,      "\033[20;5~",    0,    0},
 	{ XK_F34,           XK_NO_MOD,      "\033[21;5~",    0,    0},
-	{ XK_F35,           XK_NO_MOD,      "\033[23;5~",    0,    0},
+	{ XK_F35,           XK_NO_MOD,      "\033[23;5~",    0,    0}
 };
 
 /*
