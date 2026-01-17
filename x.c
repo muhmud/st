@@ -1077,6 +1077,17 @@ void xinit(int cols, int rows) {
   XChangeProperty(xw.dpy, xw.win, xw.netwmpid, XA_CARDINAL, 32, PropModeReplace, (uchar *)&thispid,
                   1);
 
+  Atom motif_hints = XInternAtom(xw.dpy, "_MOTIF_WM_HINTS", False);
+  struct {
+      unsigned long flags;
+      unsigned long functions;
+      unsigned long decorations;
+      long input_mode;
+      unsigned long status;
+  } mwm_hints = {2, 0, 0, 0, 0};
+  XChangeProperty(xw.dpy, xw.win, motif_hints, motif_hints, 32,
+                  PropModeReplace, (unsigned char *)&mwm_hints, 5);
+
   win.mode = MODE_NUMLOCK;
   resettitle();
   xhints();
