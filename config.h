@@ -288,7 +288,7 @@ static Key key[] = {
 	{ XK_KP_End,        XK_ANY_MOD,     "\033[4~",       0,    0},
 	{ XK_KP_Next,       ShiftMask,      "\033[6;2~",     0,    0},
 	{ XK_KP_Next,       XK_ANY_MOD,     "\033[6~",       0,    0},
-	{ XK_KP_Insert,     ShiftMask,      "\033[2;2~",    +1,    0},
+	{ XK_KP_Insert,     ShiftMask,      "\033[2;2~",    0,    0},
 	{ XK_KP_Insert,     ShiftMask,      "\033[4l",      -1,    0},
 	{ XK_KP_Insert,     ControlMask,    "\033[L",       -1,    0},
 	{ XK_KP_Insert,     ControlMask,    "\033[2;5~",    +1,    0},
