@@ -1334,6 +1334,11 @@ void xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int
   r.y = 0;
   r.height = win.ch;
   r.width = width;
+  /* Widen clip for PUA glyphs (Nerd Font icons) whose font glyph exceeds one cell */
+  if (!(base.mode & ATTR_WIDE) && len == 1 &&
+      ((base.u >= 0xE000 && base.u <= 0xF8FF) ||
+       (base.u >= 0xF0000 && base.u <= 0x10FFFF)))
+    r.width += win.cw;
   XftDrawSetClipRectangles(xw.draw, winx, winy, &r, 1);
 
   /* Render the glyphs. */
